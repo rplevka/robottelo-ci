@@ -23,6 +23,8 @@ if [ ${PARTITION_DISK} = "true" ]; then
     fab -H root@${SERVER_HOSTNAME} partition_disk
 fi
 
+# Make yum stdout less verbose for shorter console outputs
+fab -H root@${SERVER_HOSTNAME} set_yum_debug_level
 
 # ISOs require a specific URL
 if [ ${DISTRIBUTION} = "ISO" ]; then
@@ -31,7 +33,7 @@ if [ ${DISTRIBUTION} = "ISO" ]; then
         export ISO_URL="${SATELLITE6_CUSTOM_BASEURL}"
     else
         export ISO_URL="${SATELLITE6_ISO_REPO}"
-    fi  
+    fi
 fi
 
 # This is only used for downstream builds

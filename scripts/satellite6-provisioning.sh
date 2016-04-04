@@ -13,6 +13,8 @@ fi
 if [ "${DISTRIBUTION}" = 'satellite6-zstream' ]; then
     DISTRIBUTION='satellite6-downstream'
 fi
+# Make yum stdout less verbose for shorter console outputs
+fab -H "root@${SERVER_HOSTNAME}" "set_yum_debug_level"
 
 fab -H "root@${PROVISIONING_HOST}" "product_install:${DISTRIBUTION},create_vm=true,sat_cdn_version=${SATELLITE_VERSION},test_in_stage=${STAGE_TEST}"
 
