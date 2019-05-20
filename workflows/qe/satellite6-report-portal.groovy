@@ -6,11 +6,6 @@ pipeline {
     }
     parameters {
         string(name: 'AUTOMATION_BUILD_URL', description: 'The URL of the build to process')
-        string(name: 'BUILD_TAGS', description: 'Space-separated set of tags to add to the launch')
-        string(name: 'RP_PROJECT', defaultValue: 'satellite6', description: 'Report Portal project to feed the results into')
-        string(name: 'RP_TOOLS_FORK', defaultValue: 'satelliteqe',description: 'You can override the gitlab report-portal-tools fork')
-        string(name: 'RP_TOOLS_BRANCH', defaultValue: 'master', description: 'You can override the report-portal-tools repo branch if using REPORT_PORTAL_TOOLS_REPO')
-        string(name: 'WORKERS', defaultValue: '8', description: 'Number of workers to parallelize automated issue claiming')
     }
     stages {
         stage('Virtualenv') {

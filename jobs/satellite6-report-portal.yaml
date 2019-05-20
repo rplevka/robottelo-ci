@@ -26,9 +26,9 @@
     pipeline-scm:
         scm:
           - git:
-                url: https://github.com/SatelliteQE/robottelo-ci.git
+                url: https://github.com/rplevka/robottelo-ci.git
                 branches:
-                  - origin/master
+                  - origin/rp2
                 clean: true
         script-path: workflows/qe/satellite6-report-portal.groovy
         lightweight-checkout: true
