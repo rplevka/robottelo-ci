@@ -92,7 +92,7 @@ pipeline {
                 sh_venv '''
                     cd rp_tools/scripts/reportportal_cli/
                     #to prevent this step from actually sending the mail (dry run) just uncomment this:
-                    #sed -i 's/server\\.sendmail/print/' alert_cli.py
+                    sed -i 's/server\\.sendmail/print/' alert_cli.py
                     ./alert_cli.py
                 '''
             }
